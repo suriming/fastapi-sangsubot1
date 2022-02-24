@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from konlpy.tag import Komoran
+from pydantic import BaseModel
 
 app = FastAPI()
 
@@ -14,8 +15,10 @@ async def read_classes(data = None):
     return {"classes": result}
 
 hon_tokens = [word.rstrip('\n') for word in open('komoran_honorific_token.txt', 'r',encoding='utf-8')]
+class counterRequest(BaseModel):
+    text: str
 
-@app.post("/predict")
+@app.post("/predict", )
 async def honorific_token_counter(request: counterRequest):
     cnt = 0
     for i in komoran.pos(request.text):
