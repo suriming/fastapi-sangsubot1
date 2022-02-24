@@ -21,7 +21,7 @@ class counterRequest(BaseModel):
 @app.post("/predict", )
 async def honorific_token_counter(request: counterRequest):
     cnt = 0
-    for i in komoran.pos(request.text):
+    for i in Komoran().pos(request.text):
         if str(i) in hon_tokens:
             cnt += 1
     return {"cnt": cnt}
