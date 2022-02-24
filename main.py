@@ -62,5 +62,5 @@ async def sentiment_predict(request: sentimentRequest):
     output_score = []
     for idx in range(5) :
         output_score.append(score[0][idx])
-
-    return {"score": output_score}  
+    outputdict = dict(enumerate(output_score))
+    return {"score": outputdict}  
