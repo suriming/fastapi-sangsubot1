@@ -35,6 +35,7 @@ async def honorific_token_counter(request: counterRequest):
     return counterResponse(
         cnt = cnt
     )
+
 class sentimentRequest(BaseModel):
     text: str
 
@@ -59,8 +60,8 @@ async def sentiment_predict(request: sentimentRequest):
     pad_new = pad_sequences(encoded, maxlen=max_len)
     score = model.predict(pad_new)
 
-    output_score = []
-    for idx in range(5) :
-        output_score.append(score[0][idx])
-    outputdict = dict(enumerate(output_score))
-    return {"score": outputdict}  
+    # output_score = []
+    # for idx in range(5) :
+    #     output_score.append(score[0][idx])
+    # outputdict = dict(enumerate(output_score))
+    return {"score": score}  
