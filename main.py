@@ -59,9 +59,9 @@ async def sentiment_predict(request: sentimentRequest):
     encoded = tokenizer.texts_to_sequences([target_sentence])
     pad_new = pad_sequences(encoded, maxlen=max_len)
     score = model.predict(pad_new)
-
+    test = list(tuple(score))
     # output_score = []
     # for idx in range(5) :
     #     output_score.append(score[0][idx])
     # outputdict = dict(enumerate(output_score))
-    return {"score": score}  
+    return {"score": test}  
