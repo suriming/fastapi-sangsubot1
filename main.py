@@ -20,6 +20,9 @@ origins = [
     "http://3.38.106.209:8080"
 ]
 
+
+app = FastAPI()
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -27,8 +30,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-app = FastAPI()
 
 @app.get("/")
 async def read_root():
