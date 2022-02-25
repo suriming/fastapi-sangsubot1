@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from konlpy.tag import Komoran
 from pydantic import BaseModel
+from eunjeon import Mecab
 
 from keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
@@ -74,9 +75,8 @@ async def sentiment_predict(request: sentimentRequest):
                  '때', '가', '한', '지', '대하', '오', '말', '일', '그렇', '위하', '때문', '그것', '두', '알', '그러나', '받', '일', '그런', '또',
                  '사회', '많', '그리고', '중', '따르', '만들', '지금', '고', '다']  # 불용어
 
-    komoran = Komoran()
     target_sentence = re.sub(r'[^ㄱ-ㅎㅏ-ㅣ가-힣 ]', '', target_sentence)
-    target_sentence = komoran.morphs(target_sentence)
+    target_sentence = Mecab().morphs(target_sentence)
     # target_sentence = [word for word in target_sentence if not word in stopwords]
     encoded = tokenizer.texts_to_sequences([target_sentence])
     pad_new = pad_sequences(encoded, maxlen=max_len)
