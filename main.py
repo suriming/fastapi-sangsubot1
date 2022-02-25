@@ -7,6 +7,27 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import re
 import pickle
 
+from fastapi.middleware.cors import CORSMiddleware
+
+origins = ["*"]
+
+origins = [
+    "http://localhost",
+    "http://localhost:8080",
+    "https://localhost",
+    "http://3.38.106.209"
+    "http://3.38.106.209:80"
+    "http://3.38.106.209:8080"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app = FastAPI()
 
 @app.get("/")
