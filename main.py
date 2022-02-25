@@ -55,7 +55,7 @@ async def sentiment_predict(request: sentimentRequest):
     komoran = Komoran()
     target_sentence = re.sub(r'[^ㄱ-ㅎㅏ-ㅣ가-힣 ]', '', target_sentence)
     target_sentence = komoran.morphs(target_sentence)
-    target_sentence = [word for word in target_sentence if not word in stopwords]
+    # target_sentence = [word for word in target_sentence if not word in stopwords]
     encoded = tokenizer.texts_to_sequences([target_sentence])
     pad_new = pad_sequences(encoded, maxlen=max_len)
     score = model.predict(pad_new)
