@@ -49,10 +49,12 @@ class counterRequest(BaseModel):
 class counterResponse(BaseModel):
     cnt: str
 
+komoran = Komoran(userdic='/content/sangsu_dict.txt')
+
 @app.post("/predict", )
 async def honorific_token_counter(request: counterRequest):
     cnt = 0
-    for i in Komoran().pos(request.text):
+    for i in komoran.pos(request.text):
         if str(i) in hon_tokens:
             cnt += 1
     return counterResponse(

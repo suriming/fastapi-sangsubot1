@@ -1,0 +1,17 @@
+정상수	NNP
+상수형	NNP
+테이저건	NNP
+테이져건	NNP
+홍대	NNP
+췍	NNP
+용	IC
+ㅠ	IC
+ㅜ	IC
+ㅋ	IC
+ㅠㅠ	IC
+용	SF
+ㅠ	SF
+ㅜ	SF
+ㅋ	SF
+ㅠㅠ	SF
+ㅎ	SF
