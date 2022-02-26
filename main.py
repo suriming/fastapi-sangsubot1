@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from konlpy.tag import Komoran
+from konlpy.tag import Komoran, Mecab
 from pydantic import BaseModel
-from eunjeon import Mecab
+
 
 from keras.models import load_model
 from tensorflow.keras.preprocessing.sequence import pad_sequences
