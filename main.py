@@ -49,7 +49,7 @@ class counterRequest(BaseModel):
 class counterResponse(BaseModel):
     cnt: str
 
-komoran = Komoran(userdic='/content/sangsu_dict.txt')
+komoran = Komoran(userdic='sangsu_dict.txt')
 
 @app.post("/predict", )
 async def honorific_token_counter(request: counterRequest):
